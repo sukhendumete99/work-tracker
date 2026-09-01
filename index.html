@@ -6,9 +6,7 @@
 <title>Work Tracker</title>
 
 <style>
-*{
- box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
  margin:0;
@@ -58,15 +56,9 @@ input{
  cursor:pointer;
 }
 
-#yearScreen,
-#monthScreen,
-#dashboardScreen{
+#yearScreen,#monthScreen,#dashboardScreen{
  display:none;
 }
-
-/* =========================
-YEAR SCREEN
-========================= */
 
 .year-top{
  position:relative;
@@ -87,15 +79,13 @@ YEAR SCREEN
  cursor:pointer;
 }
 
-.year-grid,
-.month-grid{
+.year-grid,.month-grid{
  display:grid;
  grid-template-columns:repeat(2,1fr);
  gap:12px;
 }
 
-.year-btn,
-.month-btn{
+.year-btn,.month-btn{
  padding:13px;
  border:0;
  border-radius:10px;
@@ -107,8 +97,8 @@ YEAR SCREEN
 }
 
 .future{
- background:#d9f3fc !important;
- color:#9bcddd !important;
+ background:#d9f3fc!important;
+ color:#9bcddd!important;
  cursor:not-allowed;
 }
 
@@ -120,10 +110,6 @@ YEAR SCREEN
  color:#159ed5;
  cursor:pointer;
 }
-
-/* =========================
-SETTINGS POPUP
-========================= */
 
 .settings-overlay{
  position:fixed;
@@ -159,8 +145,7 @@ SETTINGS POPUP
  line-height:1.5;
 }
 
-.delete-year-btn,
-.delete-month-btn{
+.delete-year-btn,.delete-month-btn{
  width:100%;
  padding:12px;
  border:0;
@@ -172,13 +157,8 @@ SETTINGS POPUP
  margin-top:8px;
 }
 
-.delete-year-btn{
- background:#e74c3c;
-}
-
-.delete-month-btn{
- background:#e67e22;
-}
+.delete-year-btn{background:#e74c3c}
+.delete-month-btn{background:#e67e22}
 
 .close-settings-btn{
  width:100%;
@@ -190,10 +170,6 @@ SETTINGS POPUP
  color:#555;
  cursor:pointer;
 }
-
-/* =========================
-DELETE SELECT POPUP
-========================= */
 
 .delete-select-popup{
  position:fixed;
@@ -274,10 +250,6 @@ DELETE SELECT POPUP
  cursor:pointer;
 }
 
-/* =========================
-CONFIRM POPUP
-========================= */
-
 .confirm-popup{
  position:fixed;
  left:50%;
@@ -331,25 +303,14 @@ CONFIRM POPUP
  cursor:pointer;
 }
 
-/* =========================
-DASHBOARD
-========================= */
-
 .table{
  width:100%;
  overflow-x:auto;
 }
 
-.table-header,
-.day-row{
+.table-header,.day-row{
  display:grid;
- grid-template-columns:
- 42px
- 48px
- 80px
- 55px
- 175px
- 115px;
+ grid-template-columns:42px 48px 80px 55px 175px 115px;
  gap:5px;
  align-items:center;
  min-width:595px;
@@ -423,10 +384,6 @@ DASHBOARD
  box-shadow:0 0 8px rgba(230,162,60,.7);
 }
 
-/* =========================
-OT
-========================= */
-
 .hours-box{
  width:55px;
  height:34px;
@@ -451,10 +408,6 @@ OT
  font-family:Arial,sans-serif;
  text-align:center;
 }
-
-/* =========================
-TIME
-========================= */
 
 .time-display{
  width:100%;
@@ -482,10 +435,6 @@ TIME
  cursor:not-allowed;
 }
 
-/* =========================
-ADVANCE
-========================= */
-
 .advance-input{
  width:100%;
  padding:9px 7px;
@@ -495,16 +444,11 @@ ADVANCE
  text-align:center;
 }
 
-.advance-input:disabled,
-.hours-input:disabled{
+.advance-input:disabled,.hours-input:disabled{
  background:#f1f1f1;
  color:#888;
  cursor:not-allowed;
 }
-
-/* =========================
-TIME POPUP
-========================= */
 
 .time-popup{
  position:fixed;
@@ -572,461 +516,323 @@ TIME POPUP
  background:rgba(0,0,0,.35);
  z-index:999;
 }
-
-/* =========================
-SUMMARY
-========================= */
-
-.summary{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:8px;
- margin-top:15px;
-}
-
-.summary div{
- background:#eaf8ff;
- padding:12px 5px;
- border-radius:10px;
- text-align:center;
- font-size:13px;
- color:#555;
-}
-
-.summary b{
- display:block;
- margin-top:4px;
- font-size:18px;
- color:#159ed5;
-}
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-LOGIN
-========================= -->
-
 <div class="screen" id="loginScreen">
 
- <div style="text-align:center;font-size:45px;">
- 🔐
- </div>
+<div style="text-align:center;font-size:45px;">🔐</div>
 
- <h1>Work Tracker</h1>
+<h1>Work Tracker</h1>
 
- <div class="subtitle">
- Enter password to continue
- </div>
+<div class="subtitle">
+Enter password to continue
+</div>
 
- <input
- type="password"
- id="password"
- placeholder="Enter Password"
- >
+<input type="password" id="password" placeholder="Enter Password">
 
- <br><br>
+<br><br>
 
- <button
- class="login-btn"
- onclick="login()">
- Login
- </button>
+<button class="login-btn" onclick="login()">
+Login
+</button>
 
- <p
- id="error"
- style="color:red;text-align:center;display:none;">
- Incorrect password
- </p>
+<p id="error" style="color:red;text-align:center;display:none;">
+Incorrect password
+</p>
 
 </div>
 
-
-<!-- =========================
-YEAR SCREEN
-========================= -->
 
 <div class="screen" id="yearScreen">
 
- <div class="year-top">
+<div class="year-top">
 
-  <button
-  class="settings-btn"
-  onclick="openSettings()"
-  title="Settings">
-  ⚙️
-  </button>
+<button class="settings-btn" onclick="openSettings()" title="Settings">
+⚙️
+</button>
 
- </div>
+</div>
 
- <h1>Select Year</h1>
+<h1>Select Year</h1>
 
- <div class="subtitle">
- Choose a year
- </div>
+<div class="subtitle">
+Choose a year
+</div>
 
- <div
- class="year-grid"
- id="yearGrid">
- </div>
+<div class="year-grid" id="yearGrid"></div>
 
 </div>
 
 
-<!-- =========================
-SETTINGS
-========================= -->
-
-<div
-class="settings-overlay"
-id="settingsOverlay"
+<div class="settings-overlay" id="settingsOverlay"
 style="display:none;"
 onclick="closeSettings()">
 </div>
 
-<div
-class="settings-popup"
-id="settingsPopup"
+<div class="settings-popup" id="settingsPopup"
 style="display:none;">
 
- <h2>⚙️ Settings</h2>
+<h2>⚙️ Settings</h2>
 
- <p>
- Manage your Work Tracker data.
- </p>
+<p>
+Manage your Work Tracker data.
+</p>
 
- <button
- class="delete-year-btn"
- onclick="openDeleteYearSelection()">
- 🗑 Delete Year
- </button>
+<button class="delete-year-btn"
+onclick="openDeleteYearSelection()">
+🗑 Delete Year
+</button>
 
- <button
- class="delete-month-btn"
- onclick="openDeleteMonthYearSelection()">
- 🗑 Delete Month
- </button>
+<button class="delete-month-btn"
+onclick="openDeleteMonthYearSelection()">
+🗑 Delete Month
+</button>
 
- <button
- class="close-settings-btn"
- onclick="closeSettings()">
- Cancel
- </button>
+<button class="close-settings-btn"
+onclick="closeSettings()">
+Cancel
+</button>
 
 </div>
 
 
-<!-- =========================
-DELETE YEAR SELECTION
-========================= -->
-
-<div
-class="settings-overlay"
-id="deleteYearOverlay"
+<div class="settings-overlay" id="deleteYearOverlay"
 style="display:none;"
 onclick="closeDeleteYearSelection()">
 </div>
 
-<div
-class="delete-select-popup"
-id="deleteYearPopup"
+<div class="delete-select-popup" id="deleteYearPopup"
 style="display:none;">
 
- <h2>🗑 Delete Year</h2>
+<h2>🗑 Delete Year</h2>
 
- <p>
- Select the year you want to delete.
- </p>
+<p>
+Select the year you want to delete.
+</p>
 
- <div
- class="delete-choice-grid"
- id="deleteYearGrid">
- </div>
+<div class="delete-choice-grid" id="deleteYearGrid"></div>
 
- <div class="delete-select-buttons">
+<div class="delete-select-buttons">
 
-  <button
-  class="delete-select-cancel"
-  onclick="closeDeleteYearSelection()">
-  Cancel
-  </button>
+<button class="delete-select-cancel"
+onclick="closeDeleteYearSelection()">
+Cancel
+</button>
 
-  <button
-  class="delete-select-delete"
-  onclick="openYearDeleteConfirmation()">
-  Delete
-  </button>
+<button class="delete-select-delete"
+onclick="openYearDeleteConfirmation()">
+Delete
+</button>
 
- </div>
+</div>
 
 </div>
 
 
-<!-- =========================
-DELETE MONTH YEAR SELECTION
-========================= -->
-
-<div
-class="settings-overlay"
-id="deleteMonthYearOverlay"
+<div class="settings-overlay" id="deleteMonthYearOverlay"
 style="display:none;"
 onclick="closeDeleteMonthYearSelection()">
 </div>
 
-<div
-class="delete-select-popup"
-id="deleteMonthYearPopup"
+<div class="delete-select-popup" id="deleteMonthYearPopup"
 style="display:none;">
 
- <h2>🗑 Delete Month</h2>
+<h2>🗑 Delete Month</h2>
 
- <p>
- First select the year.
- </p>
+<p>
+First select the year.
+</p>
 
- <div
- class="delete-choice-grid"
- id="deleteMonthYearGrid">
- </div>
+<div class="delete-choice-grid"
+id="deleteMonthYearGrid">
+</div>
 
- <div class="delete-select-buttons">
+<div class="delete-select-buttons">
 
-  <button
-  class="delete-select-cancel"
-  onclick="closeDeleteMonthYearSelection()">
-  Cancel
-  </button>
+<button class="delete-select-cancel"
+onclick="closeDeleteMonthYearSelection()">
+Cancel
+</button>
 
- </div>
+</div>
 
 </div>
 
 
-<!-- =========================
-DELETE MONTH SELECTION
-========================= -->
-
-<div
-class="settings-overlay"
-id="deleteMonthOverlay"
+<div class="settings-overlay" id="deleteMonthOverlay"
 style="display:none;"
 onclick="closeDeleteMonthSelection()">
 </div>
 
-<div
-class="delete-select-popup"
-id="deleteMonthPopup"
+<div class="delete-select-popup" id="deleteMonthPopup"
 style="display:none;">
 
- <h2>🗑 Select Month</h2>
+<h2>🗑 Select Month</h2>
 
- <p id="deleteMonthYearText">
- Select the month you want to delete.
- </p>
+<p id="deleteMonthYearText">
+Select the month you want to delete.
+</p>
 
- <div
- class="delete-choice-grid"
- id="deleteMonthGrid">
- </div>
+<div class="delete-choice-grid"
+id="deleteMonthGrid">
+</div>
 
- <div class="delete-select-buttons">
+<div class="delete-select-buttons">
 
-  <button
-  class="delete-select-cancel"
-  onclick="closeDeleteMonthSelection()">
-  Cancel
-  </button>
+<button class="delete-select-cancel"
+onclick="closeDeleteMonthSelection()">
+Cancel
+</button>
 
-  <button
-  class="delete-select-delete"
-  onclick="openMonthDeleteConfirmation()">
-  Delete
-  </button>
+<button class="delete-select-delete"
+onclick="openMonthDeleteConfirmation()">
+Delete
+</button>
 
- </div>
+</div>
 
 </div>
 
 
-<!-- =========================
-DELETE CONFIRMATION
-========================= -->
-
-<div
-class="settings-overlay"
-id="confirmOverlay"
+<div class="settings-overlay" id="confirmOverlay"
 style="display:none;">
 </div>
 
-<div
-class="confirm-popup"
-id="confirmPopup"
+<div class="confirm-popup" id="confirmPopup"
 style="display:none;">
 
- <h2 id="confirmTitle">
- ⚠️ Confirm Delete
- </h2>
+<h2 id="confirmTitle">
+⚠️ Confirm Delete
+</h2>
 
- <p id="deleteConfirmText">
- Are you sure?
- </p>
+<p id="deleteConfirmText">
+Are you sure?
+</p>
 
- <div class="confirm-buttons">
+<div class="confirm-buttons">
 
-  <button
-  class="confirm-cancel"
-  onclick="closeDeleteConfirmation()">
-  Cancel
-  </button>
+<button class="confirm-cancel"
+onclick="closeDeleteConfirmation()">
+Cancel
+</button>
 
-  <button
-  class="confirm-delete"
-  onclick="confirmDelete()">
-  Yes, Delete
-  </button>
-
- </div>
+<button class="confirm-delete"
+onclick="confirmDelete()">
+Yes, Delete
+</button>
 
 </div>
 
+</div>
 
-<!-- =========================
-MONTH
-========================= -->
 
 <div class="screen" id="monthScreen">
 
- <button
- class="back-btn"
- onclick="showYears()">
- ← Back
- </button>
+<button class="back-btn" onclick="showYears()">
+← Back
+</button>
 
- <h1>Select Month</h1>
+<h1>Select Month</h1>
 
- <div
- class="subtitle"
- id="yearText">
- </div>
+<div class="subtitle" id="yearText"></div>
 
- <div
- class="month-grid"
- id="monthGrid">
- </div>
+<div class="month-grid" id="monthGrid"></div>
 
 </div>
 
-
-<!-- =========================
-DASHBOARD
-========================= -->
 
 <div class="screen" id="dashboardScreen">
 
- <button
- class="back-btn"
- onclick="showMonths()">
- ← Back
- </button>
+<button class="back-btn" onclick="showMonths()">
+← Back
+</button>
 
- <h1 id="dashboardTitle">
- Attendance
- </h1>
+<h1 id="dashboardTitle">
+Attendance
+</h1>
 
- <div class="table">
+<div class="table">
 
-  <div class="table-header">
+<div class="table-header">
 
-   <div>Date</div>
-   <div>Day</div>
-   <div>P / A</div>
-   <div>OT</div>
-   <div>Time</div>
-   <div>Advance</div>
+<div>Date</div>
+<div>Day</div>
+<div>P / A</div>
+<div>OT</div>
+<div>Time</div>
+<div>Advance</div>
 
-  </div>
+</div>
 
-  <div id="dayList"></div>
+<div id="dayList"></div>
 
- </div>
+</div>
 
- <div class="summary">
+<div class="summary">
 
-  <div>
-   Present
-   <b id="presentCount">0</b>
-  </div>
+<div>
+Present
+<b id="presentCount">0</b>
+</div>
 
-  <div>
-   Absent
-   <b id="absentCount">0</b>
-  </div>
+<div>
+Absent
+<b id="absentCount">0</b>
+</div>
 
-  <div>
-   Days
-   <b id="totalDaysCount">0</b>
-  </div>
+<div>
+Days
+<b id="totalDaysCount">0</b>
+</div>
 
- </div>
+</div>
 
 </div>
 
 
-<!-- =========================
-TIME POPUP
-========================= -->
-
-<div
-class="popup-overlay"
-id="popupOverlay"
+<div class="popup-overlay" id="popupOverlay"
 style="display:none;"
 onclick="closeTimePopup()">
 </div>
 
-<div
-class="time-popup"
-id="timePopup"
+<div class="time-popup" id="timePopup"
 style="display:none;">
 
- <h2>Time</h2>
+<h2>Time</h2>
 
- <label>From Time</label>
+<label>From Time</label>
 
- <input
- type="time"
- id="fromTime">
+<input type="time" id="fromTime">
 
- <label>To Time</label>
+<label>To Time</label>
 
- <input
- type="time"
- id="toTime">
+<input type="time" id="toTime">
 
- <div class="time-popup-buttons">
+<div class="time-popup-buttons">
 
-  <button
-  class="time-cancel"
-  onclick="closeTimePopup()">
-  Cancel
-  </button>
+<button class="time-cancel"
+onclick="closeTimePopup()">
+Cancel
+</button>
 
-  <button
-  class="time-save"
-  onclick="saveSelectedTime()">
-  Save
-  </button>
+<button class="time-save"
+onclick="saveSelectedTime()">
+Save
+</button>
 
- </div>
+</div>
 
 </div>
 
 
 <script>
 
-/* =========================
-SUPABASE CONFIG
-========================= */
+/* =========================================================
+   SUPABASE SETTINGS
+========================================================= */
 
 const SUPABASE_URL =
 "https://okjixijuymebopzzrjwb.supabase.co";
@@ -1034,13 +840,12 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
 "sb_publishable_2HwNj-J2OwAmKUrq2M6y_w_UD3_QTYh";
 
-const SUPABASE_TABLE =
-"work_data";
+const TABLE_NAME = "work_data";
 
 
-/* =========================
-VARIABLES
-========================= */
+/* =========================================================
+   VARIABLES
+========================================================= */
 
 let selectedYear = null;
 let selectedMonth = null;
@@ -1057,89 +862,55 @@ let deleteMonthSelectedMonth = null;
 const EDIT_TIME = 12 * 60 * 60 * 1000;
 
 const months = [
- "January",
- "February",
- "March",
- "April",
- "May",
- "June",
- "July",
- "August",
- "September",
- "October",
- "November",
- "December"
+"January","February","March","April","May","June",
+"July","August","September","October","November","December"
 ];
 
 const days = [
- "Sunday",
- "Monday",
- "Tuesday",
- "Wednesday",
- "Thursday",
- "Friday",
- "Saturday"
+"Sunday","Monday","Tuesday","Wednesday",
+"Thursday","Friday","Saturday"
 ];
 
 
-/* =========================
-SUPABASE REQUEST
-========================= */
+/* =========================================================
+   SUPABASE API
+========================================================= */
 
-async function supabaseRequest(
- method,
- endpoint,
- body = null
-){
+async function supabaseRequest(path, options = {}){
 
- const options = {
-  method:method,
-  headers:{
-   "apikey":SUPABASE_KEY,
-   "Authorization":"Bearer " + SUPABASE_KEY,
-   "Content-Type":"application/json",
-   "Prefer":"return=representation"
-  }
+ const headers = {
+   "apikey": SUPABASE_KEY,
+   "Authorization": "Bearer " + SUPABASE_KEY,
+   "Content-Type": "application/json",
+   ...(options.headers || {})
  };
 
- if(body !== null){
-  options.body = JSON.stringify(body);
- }
-
  const response = await fetch(
-  SUPABASE_URL + "/rest/v1/" + endpoint,
-  options
+   SUPABASE_URL + "/rest/v1/" + path,
+   {
+     ...options,
+     headers: headers
+   }
  );
 
  if(!response.ok){
 
-  const errorText = await response.text();
+   const errorText = await response.text();
 
-  console.error(
-   "Supabase Error:",
-   errorText
-  );
+   console.error("Supabase Error:",errorText);
 
-  throw new Error(errorText);
+   throw new Error(errorText);
  }
 
  const text = await response.text();
 
- if(!text){
-  return null;
- }
-
- try{
-  return JSON.parse(text);
- }catch(e){
-  return null;
- }
+ return text ? JSON.parse(text) : null;
 }
 
 
-/* =========================
-LOGIN
-========================= */
+/* =========================================================
+   LOGIN
+========================================================= */
 
 function login(){
 
@@ -1148,27 +919,27 @@ function login(){
 
  if(password === "1234"){
 
-  document.getElementById("loginScreen")
-  .style.display="none";
+   document.getElementById("loginScreen")
+   .style.display="none";
 
-  document.getElementById("yearScreen")
-  .style.display="block";
+   document.getElementById("yearScreen")
+   .style.display="block";
 
-  createYears();
+   createYears();
 
  }else{
 
-  document.getElementById("error")
-  .style.display="block";
+   document.getElementById("error")
+   .style.display="block";
 
  }
 
 }
 
 
-/* =========================
-YEARS
-========================= */
+/* =========================================================
+   YEARS
+========================================================= */
 
 function createYears(){
 
@@ -1181,42 +952,40 @@ function createYears(){
  new Date().getFullYear();
 
  for(
-  let year=currentYear;
-  year<=2050;
-  year++
+   let year=currentYear;
+   year<=2050;
+   year++
  ){
 
-  const button =
-  document.createElement("button");
+   const button =
+   document.createElement("button");
 
-  button.innerText=year;
-  button.className="year-btn";
+   button.innerText=year;
+   button.className="year-btn";
 
-  if(year>currentYear){
+   if(year>currentYear){
 
-   button.classList.add("future");
-   button.disabled=true;
+     button.classList.add("future");
+     button.disabled=true;
 
-  }else{
+   }else{
 
-   button.onclick=function(){
+     button.onclick=function(){
+       selectYear(year);
+     };
 
-    selectYear(year);
+   }
 
-   };
-
-  }
-
-  grid.appendChild(button);
+   grid.appendChild(button);
 
  }
 
 }
 
 
-/* =========================
-SETTINGS OPEN
-========================= */
+/* =========================================================
+   SETTINGS
+========================================================= */
 
 function openSettings(){
 
@@ -1227,11 +996,6 @@ function openSettings(){
  .style.display="block";
 
 }
-
-
-/* =========================
-SETTINGS CLOSE
-========================= */
 
 function closeSettings(){
 
@@ -1244,9 +1008,9 @@ function closeSettings(){
 }
 
 
-/* =========================
-DELETE YEAR SELECTION
-========================= */
+/* =========================================================
+   DELETE YEAR SELECTION
+========================================================= */
 
 function openDeleteYearSelection(){
 
@@ -1259,40 +1023,31 @@ function openDeleteYearSelection(){
 
  deleteSelectedYearValue=null;
 
- const currentYear =
- new Date().getFullYear();
+ for(let year=2026;year<=2050;year++){
 
- for(
-  let year=2026;
-  year<=2050;
-  year++
- ){
+   const button =
+   document.createElement("button");
 
-  const button =
-  document.createElement("button");
+   button.innerText=year;
+   button.className="delete-choice-btn";
 
-  button.innerText=year;
-  button.className="delete-choice-btn";
+   button.onclick=function(){
 
-  button.onclick=function(){
+     deleteSelectedYearValue=year;
 
-   deleteSelectedYearValue=year;
+     document
+     .querySelectorAll(
+       "#deleteYearGrid .delete-choice-btn"
+     )
+     .forEach(function(btn){
+       btn.classList.remove("selected");
+     });
 
-   document
-   .querySelectorAll(
-    "#deleteYearGrid .delete-choice-btn"
-   )
-   .forEach(function(btn){
+     button.classList.add("selected");
 
-    btn.classList.remove("selected");
+   };
 
-   });
-
-   button.classList.add("selected");
-
-  };
-
-  grid.appendChild(button);
+   grid.appendChild(button);
 
  }
 
@@ -1304,10 +1059,6 @@ function openDeleteYearSelection(){
 
 }
 
-
-/* =========================
-CLOSE DELETE YEAR
-========================= */
 
 function closeDeleteYearSelection(){
 
@@ -1322,9 +1073,9 @@ function closeDeleteYearSelection(){
 }
 
 
-/* =========================
-DELETE MONTH YEAR
-========================= */
+/* =========================================================
+   DELETE MONTH
+========================================================= */
 
 function openDeleteMonthYearSelection(){
 
@@ -1337,39 +1088,33 @@ function openDeleteMonthYearSelection(){
 
  deleteMonthSelectedYear=null;
 
- for(
-  let year=2026;
-  year<=2050;
-  year++
- ){
+ for(let year=2026;year<=2050;year++){
 
-  const button =
-  document.createElement("button");
+   const button =
+   document.createElement("button");
 
-  button.innerText=year;
-  button.className="delete-choice-btn";
+   button.innerText=year;
+   button.className="delete-choice-btn";
 
-  button.onclick=function(){
+   button.onclick=function(){
 
-   deleteMonthSelectedYear=year;
+     deleteMonthSelectedYear=year;
 
-   document
-   .querySelectorAll(
-    "#deleteMonthYearGrid .delete-choice-btn"
-   )
-   .forEach(function(btn){
+     document
+     .querySelectorAll(
+       "#deleteMonthYearGrid .delete-choice-btn"
+     )
+     .forEach(function(btn){
+       btn.classList.remove("selected");
+     });
 
-    btn.classList.remove("selected");
+     button.classList.add("selected");
 
-   });
+     openDeleteMonthSelection(year);
 
-   button.classList.add("selected");
+   };
 
-   openDeleteMonthSelection(year);
-
-  };
-
-  grid.appendChild(button);
+   grid.appendChild(button);
 
  }
 
@@ -1381,10 +1126,6 @@ function openDeleteMonthYearSelection(){
 
 }
 
-
-/* =========================
-CLOSE DELETE MONTH YEAR
-========================= */
 
 function closeDeleteMonthYearSelection(){
 
@@ -1398,10 +1139,6 @@ function closeDeleteMonthYearSelection(){
 
 }
 
-
-/* =========================
-DELETE MONTH SELECTION
-========================= */
 
 function openDeleteMonthSelection(year){
 
@@ -1419,44 +1156,35 @@ function openDeleteMonthSelection(year){
  deleteMonthSelectedMonth=null;
 
  document.getElementById("deleteMonthYearText")
- .innerText=
- "Year: " +
- year +
+ .innerText =
+ "Year: " + year +
  " — Select the month you want to delete.";
 
- for(
-  let month=1;
-  month<=12;
-  month++
- ){
+ for(let month=1;month<=12;month++){
 
-  const button =
-  document.createElement("button");
+   const button =
+   document.createElement("button");
 
-  button.innerText=
-  months[month-1];
+   button.innerText=months[month-1];
+   button.className="delete-choice-btn";
 
-  button.className="delete-choice-btn";
+   button.onclick=function(){
 
-  button.onclick=function(){
+     deleteMonthSelectedMonth=month;
 
-   deleteMonthSelectedMonth=month;
+     document
+     .querySelectorAll(
+       "#deleteMonthGrid .delete-choice-btn"
+     )
+     .forEach(function(btn){
+       btn.classList.remove("selected");
+     });
 
-   document
-   .querySelectorAll(
-    "#deleteMonthGrid .delete-choice-btn"
-   )
-   .forEach(function(btn){
+     button.classList.add("selected");
 
-    btn.classList.remove("selected");
+   };
 
-   });
-
-   button.classList.add("selected");
-
-  };
-
-  grid.appendChild(button);
+   grid.appendChild(button);
 
  }
 
@@ -1468,10 +1196,6 @@ function openDeleteMonthSelection(year){
 
 }
 
-
-/* =========================
-CLOSE DELETE MONTH
-========================= */
 
 function closeDeleteMonthSelection(){
 
@@ -1487,16 +1211,16 @@ function closeDeleteMonthSelection(){
 }
 
 
-/* =========================
-YEAR DELETE CONFIRMATION
-========================= */
+/* =========================================================
+   DELETE CONFIRMATION
+========================================================= */
 
 function openYearDeleteConfirmation(){
 
  if(deleteSelectedYearValue===null){
 
-  alert("Please select a year first.");
-  return;
+   alert("Please select a year first.");
+   return;
 
  }
 
@@ -1510,7 +1234,7 @@ function openYearDeleteConfirmation(){
  .innerText="⚠️ Delete Year?";
 
  document.getElementById("deleteConfirmText")
- .innerText=
+ .innerText =
  "Delete all data for " +
  yearToDelete +
  " including Attendance, OT, Time and Advance?";
@@ -1524,19 +1248,15 @@ function openYearDeleteConfirmation(){
 }
 
 
-/* =========================
-MONTH DELETE CONFIRMATION
-========================= */
-
 function openMonthDeleteConfirmation(){
 
  if(
-  deleteMonthSelectedYear===null ||
-  deleteMonthSelectedMonth===null
+   deleteMonthSelectedYear===null ||
+   deleteMonthSelectedMonth===null
  ){
 
-  alert("Please select a month first.");
-  return;
+   alert("Please select a month first.");
+   return;
 
  }
 
@@ -1550,7 +1270,7 @@ function openMonthDeleteConfirmation(){
  .innerText="⚠️ Delete Month?";
 
  document.getElementById("deleteConfirmText")
- .innerText=
+ .innerText =
  "Delete all data for " +
  months[monthToDelete-1] +
  " " +
@@ -1565,10 +1285,6 @@ function openMonthDeleteConfirmation(){
 
 }
 
-
-/* =========================
-CLOSE CONFIRM
-========================= */
 
 function closeDeleteConfirmation(){
 
@@ -1585,143 +1301,147 @@ function closeDeleteConfirmation(){
 }
 
 
-/* =========================
-CONFIRM DELETE
-========================= */
-
 async function confirmDelete(){
 
- try{
-
-  if(deleteType==="year"){
+ if(deleteType==="year"){
 
    await deleteSelectedYear();
 
-  }else if(deleteType==="month"){
+ }else if(deleteType==="month"){
 
    await deleteSelectedMonth();
 
-  }
-
- }catch(error){
-
-  console.error(error);
-
-  alert(
-   "Delete failed. Please check your Supabase connection."
-  );
-
  }
 
 }
 
 
-/* =========================
-DELETE YEAR DATA
-========================= */
+/* =========================================================
+   DELETE YEAR FROM SUPABASE
+========================================================= */
 
 async function deleteSelectedYear(){
 
- if(yearToDelete===null){
-  return;
- }
+ if(yearToDelete===null) return;
 
  const year=yearToDelete;
 
- await supabaseRequest(
-  "DELETE",
-  SUPABASE_TABLE +
-  "?year=eq." +
-  encodeURIComponent(year)
- );
+ try{
 
- closeDeleteConfirmation();
+   await supabaseRequest(
+     TABLE_NAME + "?year=eq." + year,
+     {
+       method:"DELETE"
+     }
+   );
 
- if(selectedYear === year){
+   closeDeleteConfirmation();
 
-  selectedYear=null;
-  selectedMonth=null;
+   if(selectedYear === year){
 
-  document.getElementById("monthScreen")
-  .style.display="none";
+     selectedYear=null;
+     selectedMonth=null;
 
-  document.getElementById("dashboardScreen")
-  .style.display="none";
+     document.getElementById("monthScreen")
+     .style.display="none";
 
-  document.getElementById("yearScreen")
-  .style.display="block";
+     document.getElementById("dashboardScreen")
+     .style.display="none";
+
+     document.getElementById("yearScreen")
+     .style.display="block";
+
+   }
+
+   alert(
+     year +
+     " data deleted successfully."
+   );
+
+   createYears();
+
+ }catch(error){
+
+   alert(
+     "Delete failed. Please check Supabase settings."
+   );
+
+   console.error(error);
 
  }
-
- alert(
-  year +
-  " data deleted successfully."
- );
-
- createYears();
 
 }
 
 
-/* =========================
-DELETE MONTH DATA
-========================= */
+/* =========================================================
+   DELETE MONTH FROM SUPABASE
+========================================================= */
 
 async function deleteSelectedMonth(){
 
  if(
-  yearToDelete===null ||
-  monthToDelete===null
- ){
-
-  return;
-
- }
+   yearToDelete===null ||
+   monthToDelete===null
+ ) return;
 
  const year=yearToDelete;
  const month=monthToDelete;
 
- await supabaseRequest(
-  "DELETE",
-  SUPABASE_TABLE +
-  "?year=eq." +
-  encodeURIComponent(year) +
-  "&month=eq." +
-  encodeURIComponent(month)
- );
+ try{
 
- closeDeleteConfirmation();
+   await supabaseRequest(
+     TABLE_NAME +
+     "?year=eq." +
+     year +
+     "&month=eq." +
+     month,
+     {
+       method:"DELETE"
+     }
+   );
 
- if(
-  selectedYear===year &&
-  selectedMonth===month
- ){
+   closeDeleteConfirmation();
 
-  selectedMonth=null;
+   if(
+     selectedYear===year &&
+     selectedMonth===month
+   ){
 
-  document.getElementById("dashboardScreen")
-  .style.display="none";
+     selectedMonth=null;
 
-  document.getElementById("monthScreen")
-  .style.display="block";
+     document.getElementById("dashboardScreen")
+     .style.display="none";
 
-  createMonths(year);
+     document.getElementById("monthScreen")
+     .style.display="block";
+
+     createMonths(year);
+
+   }
+
+   alert(
+     months[month-1] +
+     " " +
+     year +
+     " data deleted successfully."
+   );
+
+ }catch(error){
+
+   alert(
+     "Delete failed. Please check Supabase settings."
+   );
+
+   console.error(error);
 
  }
-
- alert(
-  months[month-1] +
-  " " +
-  year +
-  " data deleted successfully."
- );
 
 }
 
 
-/* =========================
-YEAR SELECT
-========================= */
+/* =========================================================
+   YEAR SELECT
+========================================================= */
 
 function selectYear(year){
 
@@ -1741,9 +1461,9 @@ function selectYear(year){
 }
 
 
-/* =========================
-MONTHS
-========================= */
+/* =========================================================
+   MONTHS
+========================================================= */
 
 function createMonths(year){
 
@@ -1760,52 +1480,44 @@ function createMonths(year){
  const currentMonth=
  today.getMonth()+1;
 
- for(
-  let month=1;
-  month<=12;
-  month++
- ){
+ for(let month=1;month<=12;month++){
 
-  const button =
-  document.createElement("button");
+   const button =
+   document.createElement("button");
 
-  button.innerText=
-  months[month-1];
+   button.innerText=months[month-1];
+   button.className="month-btn";
 
-  button.className="month-btn";
-
-  const future=
+   const future =
    year>currentYear ||
    (
-    year===currentYear &&
-    month>currentMonth
+     year===currentYear &&
+     month>currentMonth
    );
 
-  if(future){
+   if(future){
 
-   button.classList.add("future");
-   button.disabled=true;
+     button.classList.add("future");
+     button.disabled=true;
 
-  }else{
+   }else{
 
-   button.onclick=function(){
+     button.onclick=function(){
+       selectMonth(month);
+     };
 
-    selectMonth(month);
+   }
 
-   };
-
-  }
-
-  grid.appendChild(button);
+   grid.appendChild(button);
 
  }
 
 }
 
 
-/* =========================
-MONTH SELECT
-========================= */
+/* =========================================================
+   MONTH SELECT
+========================================================= */
 
 function selectMonth(month){
 
@@ -1822,164 +1534,169 @@ function selectMonth(month){
 }
 
 
-/* =========================
-GET DATA FROM SUPABASE
-========================= */
+/* =========================================================
+   GET DATA FROM SUPABASE
+========================================================= */
 
 async function getData(day){
 
  try{
 
-  const result =
-  await supabaseRequest(
-   "GET",
-   SUPABASE_TABLE +
-   "?year=eq." +
-   encodeURIComponent(selectedYear) +
-   "&month=eq." +
-   encodeURIComponent(selectedMonth) +
-   "&day=eq." +
-   encodeURIComponent(day) +
-   "&select=*"
-  );
+   const result =
+   await supabaseRequest(
+     TABLE_NAME +
+     "?year=eq." +
+     selectedYear +
+     "&month=eq." +
+     selectedMonth +
+     "&day=eq." +
+     day +
+     "&select=*"
+   );
 
-  if(
-   Array.isArray(result) &&
-   result.length>0
-  ){
+   if(result && result.length>0){
 
-   return result[0];
+     const d=result[0];
 
-  }
+     return {
+       id:d.id,
+       year:d.year,
+       month:d.month,
+       day:d.day,
+       status:d.status || "",
+       hours:d.hours ?? "",
+       fromTime:d.from_time || "",
+       toTime:d.to_time || "",
+       advance:d.advance || "",
+       lockStart:d.lock_start || null
+     };
+
+   }
 
  }catch(error){
 
-  console.error(
-   "Get data error:",
-   error
-  );
+   console.error(error);
 
  }
 
  return {
-  id:null,
-  year:selectedYear,
-  month:selectedMonth,
-  day:day,
-  status:"",
-  hours:"",
-  from_time:"",
-  to_time:"",
-  advance:"",
-  lock_start:null
+   status:"",
+   hours:"",
+   fromTime:"",
+   toTime:"",
+   advance:"",
+   lockStart:null
  };
 
 }
 
 
-/* =========================
-SAVE DATA TO SUPABASE
-========================= */
+/* =========================================================
+   SAVE DATA TO SUPABASE
+========================================================= */
 
 async function saveData(day,data){
 
  if(
-  data.lock_start &&
-  Date.now() >=
-  Number(data.lock_start)+EDIT_TIME
+   data.lockStart &&
+   Date.now() >=
+   Number(data.lockStart)+EDIT_TIME
  ){
 
-  return false;
+   return false;
 
  }
-
- const payload={
-  year:selectedYear,
-  month:selectedMonth,
-  day:day,
-  status:data.status || "",
-  hours:data.hours || "",
-  from_time:data.from_time || "",
-  to_time:data.to_time || "",
-  advance:data.advance || "",
-  lock_start:data.lock_start || null
- };
 
  try{
 
-  await supabaseRequest(
-   "POST",
-   SUPABASE_TABLE +
-   "?on_conflict=year,month,day",
-   payload
-  );
+   const body={
+     year:selectedYear,
+     month:selectedMonth,
+     day:day,
+     status:data.status || "",
+     hours:data.hours === "" ? null : Number(data.hours),
+     from_time:data.fromTime || null,
+     to_time:data.toTime || null,
+     advance:data.advance || "",
+     lock_start:data.lockStart
+       ? Number(data.lockStart)
+       : null
+   };
 
-  return true;
+   await supabaseRequest(
+     TABLE_NAME +
+     "?year=eq." +
+     selectedYear +
+     "&month=eq." +
+     selectedMonth +
+     "&day=eq." +
+     day,
+     {
+       method:"POST",
+       headers:{
+         "Prefer":"resolution=merge-duplicates"
+       },
+       body:JSON.stringify(body)
+     }
+   );
+
+   return true;
 
  }catch(error){
 
-  console.error(
-   "Save data error:",
-   error
-  );
+   console.error("Save error:",error);
 
-  alert(
-   "Data save failed. Please check your Supabase settings."
-  );
+   alert(
+     "Data save failed. Please check Supabase table/policy."
+   );
 
-  return false;
+   return false;
 
  }
 
 }
 
 
-/* =========================
-START TIMER
-========================= */
+/* =========================================================
+   START TIMER
+========================================================= */
 
 function startEditTimer(data){
 
- if(!data.lock_start){
+ if(!data.lockStart){
 
-  data.lock_start=Date.now();
+   data.lockStart=Date.now();
 
  }
 
 }
 
 
-/* =========================
-CHECK LOCK
-========================= */
+/* =========================================================
+   CHECK LOCK
+========================================================= */
 
-function isLocked(day,data=null){
+function isLocked(day){
 
- if(data===null){
-  return false;
+ const cache =
+ window.workDataCache &&
+ window.workDataCache[day];
+
+ if(!cache || !cache.lockStart){
+   return false;
  }
-
- if(!data.lock_start){
-  return false;
- }
-
- const now=Date.now();
-
- const lockTime=
- Number(data.lock_start);
 
  return(
-  now >=
-  lockTime +
-  EDIT_TIME
+   Date.now() >=
+   Number(cache.lockStart)+EDIT_TIME
  );
 
 }
 
 
-/* =========================
-DASHBOARD
-========================= */
+/* =========================================================
+   DASHBOARD
+========================================================= */
 
 async function createDashboard(){
 
@@ -1988,15 +1705,15 @@ async function createDashboard(){
 
  list.innerHTML="";
 
- const totalDays=
+ const totalDays =
  new Date(
-  selectedYear,
-  selectedMonth,
-  0
+   selectedYear,
+   selectedMonth,
+   0
  ).getDate();
 
  document.getElementById("dashboardTitle")
- .innerText=
+ .innerText =
  months[selectedMonth-1] +
  " " +
  selectedYear;
@@ -2004,135 +1721,127 @@ async function createDashboard(){
  document.getElementById("totalDaysCount")
  .innerText=totalDays;
 
+ window.workDataCache={};
+
+ for(
+   let day=1;
+   day<=totalDays;
+   day++
+ ){
+
+   const data =
+   await getData(day);
+
+   window.workDataCache[day]=data;
+
+ }
+
  const today=new Date();
 
  for(
-  let day=1;
-  day<=totalDays;
-  day++
+   let day=1;
+   day<=totalDays;
+   day++
  ){
 
-  const date=
-  new Date(
-   selectedYear,
-   selectedMonth-1,
-   day
-  );
+   const date =
+   new Date(
+     selectedYear,
+     selectedMonth-1,
+     day
+   );
 
-  const dayName=
-  days[date.getDay()];
+   const dayName =
+   days[date.getDay()];
 
-  const data=
-  await getData(day);
+   const data =
+   window.workDataCache[day];
 
-  const locked=
-  isLocked(day,data);
+   const locked =
+   isLocked(day);
 
-  const row=
-  document.createElement("div");
+   const row =
+   document.createElement("div");
 
-  row.className="day-row";
+   row.className="day-row";
 
-  if(
-   selectedYear===
-   today.getFullYear() &&
-   selectedMonth===
-   today.getMonth()+1 &&
-   day===
-   today.getDate()
-  ){
+   if(
+     selectedYear===today.getFullYear() &&
+     selectedMonth===today.getMonth()+1 &&
+     day===today.getDate()
+   ){
 
-   row.classList.add("today-row");
+     row.classList.add("today-row");
 
-  }
+   }
 
-  if(locked){
+   if(locked){
 
-   row.classList.add("locked-row");
+     row.classList.add("locked-row");
 
-  }
+   }
 
-  row.innerHTML=`
+   row.innerHTML=`
 
-   <div>
-    ${day}
+     <div>
+       ${day}
+       ${locked ? '<span class="lock-icon">🔒 Locked</span>' : ''}
+     </div>
 
-    ${
-     locked
-     ? '<span class="lock-icon">🔒 Locked</span>'
-     : ''
-    }
+     <div>
+       ${dayName.substring(0,3)}
+     </div>
 
-   </div>
+     <div class="status">
 
-   <div>
-    ${dayName.substring(0,3)}
-   </div>
+       <button
+       class="status-btn p-btn"
+       onclick="toggleStatus(${day},'P')"
+       ${locked ? 'disabled' : ''}>
+       P
+       </button>
 
-   <div class="status">
+       <button
+       class="status-btn a-btn"
+       onclick="toggleStatus(${day},'A')"
+       ${locked ? 'disabled' : ''}>
+       A
+       </button>
 
-    <button
-    class="status-btn p-btn"
-    onclick="toggleStatus(${day},'P')"
-    ${locked ? 'disabled' : ''}>
-    P
-    </button>
+     </div>
 
-    <button
-    class="status-btn a-btn"
-    onclick="toggleStatus(${day},'A')"
-    ${locked ? 'disabled' : ''}>
-    A
-    </button>
+     <div class="hours-box">
 
-   </div>
+       <input
+       class="hours-input"
+       type="number"
+       step="0.5"
+       min="0"
+       inputmode="decimal"
+       placeholder="OT"
+       ${locked ? 'disabled' : ''}
+       oninput="saveHours(${day},this.value)">
 
-   <div class="hours-box">
+     </div>
 
-    <input
-    class="hours-input"
-    type="number"
-    step="0.5"
-    min="0"
-    inputmode="decimal"
-    placeholder="OT"
-    ${locked ? 'disabled' : ''}
-    oninput="saveHours(${day},this.value)">
+     <div
+       class="time-display"
+       onclick="openTimePopup(${day})">
+       ${locked ? '🔒 Locked' : 'Select Time'}
+     </div>
 
-   </div>
+     <input
+       class="advance-input"
+       type="text"
+       placeholder="Advance"
+       ${locked ? 'disabled' : ''}
+       onchange="saveAdvance(${day},this.value)">
 
-   <div
-   class="time-display ${
-    locked
-    ? 'locked-time'
-    : 'empty'
-   }"
-   onclick="${
-    locked
-    ? ''
-    : `openTimePopup(${day})`
-   }">
+   `;
 
-    ${
-     locked
-     ? '🔒 Locked'
-     : 'Select Time'
-    }
+   list.appendChild(row);
 
-   </div>
-
-   <input
-   class="advance-input"
-   type="text"
-   placeholder="Advance"
-   ${locked ? 'disabled' : ''}
-   onchange="saveAdvance(${day},this.value)">
-
-  `;
-
-  list.appendChild(row);
-
-  loadData(row,data,day);
+   loadData(row,day);
 
  }
 
@@ -2141,109 +1850,150 @@ async function createDashboard(){
 }
 
 
-/* =========================
-P / A
-========================= */
+/* =========================================================
+   P / A
+========================================================= */
 
 async function toggleStatus(day,status){
 
- const data=
- await getData(day);
+ if(isLocked(day)){
 
- if(isLocked(day,data)){
-
-  await createDashboard();
-  return;
+   createDashboard();
+   return;
 
  }
 
+ let data =
+ window.workDataCache[day] ||
+ await getData(day);
+
  startEditTimer(data);
+
+ const rows =
+ document.querySelectorAll(".day-row");
+
+ const row=rows[day-1];
+
+ if(!row) return;
+
+ const p =
+ row.querySelector(".p-btn");
+
+ const a =
+ row.querySelector(".a-btn");
 
  if(status==="P"){
 
-  if(data.status==="P"){
+   if(data.status==="P"){
 
-   data.status="";
+     data.status="";
 
-  }else{
+     p.classList.remove("selected-p");
 
-   data.status="P";
+     a.style.display="block";
 
-  }
+   }else{
+
+     data.status="P";
+
+     p.classList.add("selected-p");
+
+     a.classList.remove("selected-a");
+
+     a.style.display="none";
+
+   }
 
  }
 
  if(status==="A"){
 
-  if(data.status==="A"){
+   if(data.status==="A"){
 
-   data.status="";
+     data.status="";
 
-  }else{
+     a.classList.remove("selected-a");
 
-   data.status="A";
+     p.style.display="block";
 
-  }
+   }else{
+
+     data.status="A";
+
+     a.classList.add("selected-a");
+
+     p.classList.remove("selected-p");
+
+     p.style.display="none";
+
+   }
 
  }
 
+ window.workDataCache[day]=data;
+
  await saveData(day,data);
 
- await createDashboard();
+ updateSummary();
 
 }
 
 
-/* =========================
-OT
-========================= */
+/* =========================================================
+   OT
+========================================================= */
 
 async function saveHours(day,value){
 
- const data=
- await getData(day);
+ if(isLocked(day)){
 
- if(isLocked(day,data)){
-
-  await createDashboard();
-  return;
+   createDashboard();
+   return;
 
  }
+
+ const data =
+ window.workDataCache[day] ||
+ await getData(day);
 
  startEditTimer(data);
 
  data.hours=value;
 
+ window.workDataCache[day]=data;
+
  await saveData(day,data);
 
 }
 
 
-/* =========================
-OPEN TIME
-========================= */
+/* =========================================================
+   TIME
+========================================================= */
 
-async function openTimePopup(day){
+function openTimePopup(day){
 
- const data=
- await getData(day);
+ if(isLocked(day)){
 
- if(isLocked(day,data)){
-
-  await createDashboard();
-  return;
+   createDashboard();
+   return;
 
  }
 
  selectedDayForTime=day;
 
+ const data =
+ window.workDataCache[day] ||
+ {
+   fromTime:"",
+   toTime:""
+ };
+
  document.getElementById("fromTime")
- .value=
- data.from_time || "";
+ .value=data.fromTime || "";
 
  document.getElementById("toTime")
- .value=
- data.to_time || "";
+ .value=data.toTime || "";
 
  document.getElementById("popupOverlay")
  .style.display="block";
@@ -2254,56 +2004,46 @@ async function openTimePopup(day){
 }
 
 
-/* =========================
-SAVE TIME
-========================= */
-
 async function saveSelectedTime(){
 
- if(selectedDayForTime===null){
-  return;
- }
+ if(selectedDayForTime===null) return;
 
- const day=selectedDayForTime;
+ if(isLocked(selectedDayForTime)){
 
- const data=
- await getData(day);
-
- if(isLocked(day,data)){
-
-  closeTimePopup();
-
-  await createDashboard();
-
-  return;
+   closeTimePopup();
+   createDashboard();
+   return;
 
  }
 
- const from=
- document.getElementById("fromTime")
- .value;
+ const from =
+ document.getElementById("fromTime").value;
 
- const to=
- document.getElementById("toTime")
- .value;
+ const to =
+ document.getElementById("toTime").value;
+
+ const data =
+ window.workDataCache[selectedDayForTime] ||
+ await getData(selectedDayForTime);
 
  startEditTimer(data);
 
- data.from_time=from;
- data.to_time=to;
+ data.fromTime=from;
+ data.toTime=to;
 
- await saveData(day,data);
+ window.workDataCache[selectedDayForTime]=data;
+
+ await saveData(
+   selectedDayForTime,
+   data
+ );
 
  closeTimePopup();
 
- await createDashboard();
+ createDashboard();
 
 }
 
-
-/* =========================
-CLOSE TIME
-========================= */
 
 function closeTimePopup(){
 
@@ -2318,178 +2058,181 @@ function closeTimePopup(){
 }
 
 
-/* =========================
-FORMAT TIME
-========================= */
+/* =========================================================
+   FORMAT TIME
+========================================================= */
 
 function formatTime(value){
 
- if(!value){
-  return "";
- }
+ if(!value) return "";
 
- const parts=
- value.split(":");
+ const parts=value.split(":");
 
- let hour=
- parseInt(parts[0]);
+ let hour=parseInt(parts[0]);
 
- const minute=
- parts[1];
+ const minute=parts[1];
 
  const ampm=
  hour>=12 ? "PM" : "AM";
 
- hour=
- hour%12 || 12;
+ hour=hour%12 || 12;
 
  return(
-  String(hour).padStart(2,"0") +
-  ":" +
-  minute +
-  " " +
-  ampm
+   String(hour).padStart(2,"0") +
+   ":" +
+   minute +
+   " " +
+   ampm
  );
 
 }
 
 
-/* =========================
-ADVANCE
-========================= */
+/* =========================================================
+   ADVANCE
+========================================================= */
 
 async function saveAdvance(day,value){
 
- const data=
- await getData(day);
+ if(isLocked(day)){
 
- if(isLocked(day,data)){
-
-  await createDashboard();
-  return;
+   createDashboard();
+   return;
 
  }
+
+ const data =
+ window.workDataCache[day] ||
+ await getData(day);
 
  startEditTimer(data);
 
  data.advance=value;
+
+ window.workDataCache[day]=data;
 
  await saveData(day,data);
 
 }
 
 
-/* =========================
-LOAD DATA
-========================= */
+/* =========================================================
+   LOAD DATA
+========================================================= */
 
-function loadData(row,data,day){
+function loadData(row,day){
 
- const p=
+ const data =
+ window.workDataCache[day] ||
+ {
+   status:"",
+   hours:"",
+   fromTime:"",
+   toTime:"",
+   advance:""
+ };
+
+ const p =
  row.querySelector(".p-btn");
 
- const a=
+ const a =
  row.querySelector(".a-btn");
 
- const hours=
+ const hours =
  row.querySelector(".hours-input");
 
- const timeBox=
+ const timeBox =
  row.querySelector(".time-display");
 
- const advance=
+ const advance =
  row.querySelector(".advance-input");
 
 
- /* OT */
+ hours.value=data.hours || "";
 
- hours.value=
- data.hours || "";
-
-
- /* TIME */
 
  if(
-  data.from_time &&
-  data.to_time
+   data.fromTime &&
+   data.toTime
  ){
 
-  timeBox.innerText=
-   formatTime(data.from_time) +
+   timeBox.innerText =
+   formatTime(data.fromTime) +
    " - " +
-   formatTime(data.to_time);
+   formatTime(data.toTime);
 
-  timeBox.classList.remove("empty");
+   timeBox.classList.remove("empty");
 
- }else if(
-  !isLocked(day,data)
- ){
+ }else if(!isLocked(day)){
 
-  timeBox.innerText=
-   "Select Time";
+   timeBox.innerText="Select Time";
 
-  timeBox.classList.add("empty");
+   timeBox.classList.add("empty");
 
  }
 
 
- /* ADVANCE */
+ advance.value=data.advance || "";
 
- advance.value=
- data.advance || "";
-
-
- /* STATUS */
 
  if(data.status==="P"){
 
-  p.classList.add("selected-p");
-  a.style.display="none";
+   p.classList.add("selected-p");
+   a.style.display="none";
 
  }
 
  if(data.status==="A"){
 
-  a.classList.add("selected-a");
-  p.style.display="none";
+   a.classList.add("selected-a");
+   p.style.display="none";
+
+ }
+
+ if(isLocked(day)){
+
+   timeBox.classList.add("locked-time");
 
  }
 
 }
 
 
-/* =========================
-SUMMARY
-========================= */
+/* =========================================================
+   SUMMARY
+========================================================= */
 
-async function updateSummary(){
+function updateSummary(){
 
  let present=0;
  let absent=0;
 
- const totalDays=
+ const totalDays =
  new Date(
-  selectedYear,
-  selectedMonth,
-  0
+   selectedYear,
+   selectedMonth,
+   0
  ).getDate();
 
  for(
-  let day=1;
-  day<=totalDays;
-  day++
+   let day=1;
+   day<=totalDays;
+   day++
  ){
 
-  const data=
-  await getData(day);
+   const data =
+   window.workDataCache &&
+   window.workDataCache[day];
 
-  if(data.status==="P"){
-   present++;
-  }
+   if(!data) continue;
 
-  if(data.status==="A"){
-   absent++;
-  }
+   if(data.status==="P"){
+     present++;
+   }
+
+   if(data.status==="A"){
+     absent++;
+   }
 
  }
 
@@ -2502,9 +2245,9 @@ async function updateSummary(){
 }
 
 
-/* =========================
-BACK TO YEARS
-========================= */
+/* =========================================================
+   BACK
+========================================================= */
 
 function showYears(){
 
@@ -2522,10 +2265,6 @@ function showYears(){
 }
 
 
-/* =========================
-BACK TO MONTHS
-========================= */
-
 function showMonths(){
 
  document.getElementById("dashboardScreen")
@@ -2537,24 +2276,32 @@ function showMonths(){
 }
 
 
-/* =========================
-AUTOMATIC LOCK CHECK
-========================= */
+/* =========================================================
+   AUTOMATIC LOCK CHECK
+========================================================= */
 
 setInterval(function(){
 
  if(
-  selectedYear !== null &&
-  selectedMonth !== null &&
-  document.getElementById("dashboardScreen")
-  .style.display === "block"
+   selectedYear!==null &&
+   selectedMonth!==null &&
+   document.getElementById("dashboardScreen")
+   .style.display==="block"
  ){
 
-  createDashboard();
+   createDashboard();
 
  }
 
 },60000);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.getElementById("loginScreen")
+.style.display="block";
 
 </script>
 
